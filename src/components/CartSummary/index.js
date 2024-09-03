@@ -2,7 +2,7 @@ import Popup from 'reactjs-popup'
 import CartContext from '../../context/CartContext'
 import Payment from '../Payment'
 
-const CartSummary = props => (
+const CartSummary = () => (
   <CartContext.Consumer>
     {value => {
       const {cartList} = value
@@ -15,7 +15,7 @@ const CartSummary = props => (
         <div>
           <h1>Order Total: Rs.{total}</h1>
           <p>{cartList.length} items in cart</p>
-          <Popup modal trigger={<button type="btn">Checkout</button>}>
+          <Popup modal trigger={<button type="button">Checkout</button>}>
             {close => <Payment close={close} />}
           </Popup>
         </div>
