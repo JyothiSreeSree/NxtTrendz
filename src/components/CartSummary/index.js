@@ -1,21 +1,23 @@
+import Popup from 'reactjs-popup'
 import CartContext from '../../context/CartContext'
+import Payment from '../Payment'
 
 const CartSummary = props => (
   <CartContext.Consumer>
     {value => {
       const {cartList} = value
-      let totalAmount = 0
-      const len = cartList.length
 
-      const total = cartList.map(each => {
-        totalAmount += each.quantity * each.price
-        return each
-      })
+      const total = cartList.reduce(
+        (acc, item) => acc + item.quantity * item.price,
+        0,
+      )
       return (
         <div>
-          <h1>Order Total: Rs.{totalAmount}</h1>
+          <h1>Order Total: Rs.{total}</h1>
           <p>{cartList.length} items in cart</p>
-          <button>Checkout</button>
+          <Popup modal trigger={<button type="btn">Checkout</button>}>
+            {close => <Payment close={close} />}
+          </Popup>
         </div>
       )
     }}
