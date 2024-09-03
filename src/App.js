@@ -23,6 +23,7 @@ class App extends Component {
     const filteredData = cartList.filter(each => each.id !== id)
     this.setState({cartList: filteredData})
   }
+
   addCartItem = product => {
     const {cartList} = this.state
     const filteredData = cartList.find(each => each.id === product.id)
@@ -70,6 +71,7 @@ class App extends Component {
       this.removeCartItem(id)
     }
   }
+
   removeAllCartItems = () => {
     this.setState({cartList: []})
   }

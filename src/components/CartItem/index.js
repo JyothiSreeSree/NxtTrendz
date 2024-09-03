@@ -36,6 +36,7 @@ const CartItem = props => (
             </div>
             <div className="cart-quantity-container">
               <button
+                aria-label="decrement"
                 data-testid="minus"
                 type="button"
                 className="quantity-controller-button"
@@ -45,6 +46,7 @@ const CartItem = props => (
               </button>
               <p className="cart-quantity">{quantity}</p>
               <button
+                aria-label="increment"
                 data-testid="plus"
                 type="button"
                 className="quantity-controller-button"
@@ -65,6 +67,7 @@ const CartItem = props => (
             </div>
           </div>
           <button
+            aria-label="remove"
             data-testid="remove"
             className="delete-button"
             type="button"
